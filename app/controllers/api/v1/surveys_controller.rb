@@ -30,7 +30,7 @@ module Api
       private
 
       def survey_params
-        params.require(:survey).permit(:name, :description)
+        params.require(:survey).permit(:name, :description, survey_detail_attributes: [:id, :coordinates])
       end
     end
   end

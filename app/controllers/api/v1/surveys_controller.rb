@@ -1,7 +1,7 @@
 module Api
   module V1
     class SurveysController < ApplicationController
-      protect_from_forgery with: :null_session # Disable CSRF protection for API requests
+      protect_from_forgery with: :null_session
 
       def create
         @survey = Survey.new(survey_params)
@@ -14,7 +14,8 @@ module Api
 
       def index
         @surveys = Survey.all
-        render json: { status: 'SUCCESS', message: 'Loaded all surveys', data: @surveys }, status: :ok
+         render json: @surveys, status: :ok
+        # render json: { status: 'SUCCESS', message: 'Loaded all surveys', data: @surveys }, status: :ok
       end
 
       def update
